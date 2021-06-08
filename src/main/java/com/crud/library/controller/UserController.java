@@ -3,6 +3,7 @@ package com.crud.library.controller;
 import com.crud.library.domain.dto.UserDto;
 import com.crud.library.mapper.UserMapper;
 import com.crud.library.service.DbService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,8 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@CrossOrigin("*")
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1/user")
 public class UserController {

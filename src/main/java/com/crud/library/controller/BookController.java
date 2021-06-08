@@ -30,7 +30,7 @@ public class BookController {
         return bookMapper.mapToBookDto(service.getBookById(bookId));
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "addNewBook", consumes = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "addBook", consumes = APPLICATION_JSON_VALUE)
     public void addNewBook(@RequestBody BookDto bookDto) {
         bookMapper.mapToBookDto(service.saveBook(bookMapper.mapToBook(bookDto)));
     }
