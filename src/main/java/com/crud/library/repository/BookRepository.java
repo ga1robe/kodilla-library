@@ -8,6 +8,8 @@ import java.util.Optional;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
 
+    boolean existsById(String id);
+
     @Override
     List<Book> findAll();
 

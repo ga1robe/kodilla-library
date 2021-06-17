@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "4a835f1d-aeb2-4a98-9462-5b43bd7a8d53",
+		"name": "KodillaLibraryApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllReaders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/user/getUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"getUsers"
+					]
+				},
+				"description": "kodilla library"
+			},
+			"response": []
+		},
+		{
+			"name": "addReader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"some title\",\n    \"author\": \"some author\",\n    \"publicationYear\": 22222\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/book/addNewBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"book",
+						"addNewBook"
+					]
+				},
+				"description": "Add reader"
+			},
+			"response": []
+		},
+		{
+			"name": "addBook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"Buszujący w zbożu\",\n    \"author\": \"Salinger\",\n    \"publicationYear\": 2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/book/addBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"book",
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\" function() {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_copy_id\": 25,\n    \"userId\": 1,\n    \"borrowedBookDate\": \"2000-12-12\",\n    \"returnBookDate\": \"2001-03-12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/borrowedbook/borrowBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"borrowedbook",
+						"borrowBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBookCopy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Id\": 9,\n    \"bookId\": 19,\n    \"rentalStatus\": \"AVAILABLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/bookcopies/addBookCopy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"bookcopies",
+						"addBookCopy"
+					]
+				},
+				"description": "add Book Copy"
+			},
+			"response": []
+		},
+		{
+			"name": "updateBookCopy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Id\": 8,\n    \"bookId\": 19,\n    \"rentalStatus\": \"DESTROYED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/bookcopies/updateBookCopy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"bookcopies",
+						"updateBookCopy"
+					]
+				},
+				"description": "Update BookCopy.\nChange status."
+			},
+			"response": []
+		},
+		{
+			"name": "countAvailableBookCopies?title=Buszujący w zbożu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/bookcopies/countAvailableBookCopies?title=Buszujący w zbożu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"bookcopies",
+						"countAvailableBookCopies"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Buszujący w zbożu"
+						}
+					]
+				},
+				"description": "Count available BookCopies\nWhere title is Buszujący w zbożu"
+			},
+			"response": []
+		},
+		{
+			"name": "borrowBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\" function() {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookCopyId\": 25,\n    \"userId\": 1,\n    \"borrowedBookDate\": \"2000-12-12\",\n    \"returnBookDate\": \"2001-03-12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/borrowedbook/borrowBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"borrowedbook",
+						"borrowBook"
+					]
+				},
+				"description": "Borrow Book"
+			},
+			"response": []
+		},
+		{
+			"name": "returnBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/borrowedbook/returnBook?borrowedBookId=32",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"borrowedbook",
+						"returnBook"
+					],
+					"query": [
+						{
+							"key": "borrowedBookId",
+							"value": "32"
+						}
+					]
+				},
+				"description": "return Book by param borrowedBookId"
+			},
+			"response": []
+		}
+	]
+}
