@@ -28,43 +28,6 @@
 			"response": []
 		},
 		{
-			"name": "addReader",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"title\": \"some title\",\n    \"author\": \"some author\",\n    \"publicationYear\": 22222\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/book/addNewBook",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"book",
-						"addNewBook"
-					]
-				},
-				"description": "Add reader"
-			},
-			"response": []
-		},
-		{
 			"name": "addBook",
 			"request": {
 				"method": "POST",
@@ -95,6 +58,42 @@
 						"v1",
 						"book",
 						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addReader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 8,\n        \"name\": \"name 08\",\n        \"surname\": \"surname 08\",\n        \"accountStartDate\": \"2021-06-07\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/user/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"addUser"
 					]
 				}
 			},
