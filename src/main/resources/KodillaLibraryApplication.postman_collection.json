@@ -291,7 +291,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"bookCopyId\": 25,\n    \"userId\": 1,\n    \"borrowedBookDate\": \"2000-12-12\",\n    \"returnBookDate\": \"2001-03-12\"\n}",
+					"raw": "{\n    \"bookCopyId\": 20,\n    \"userId\": 1\n    \"borrowedBookDate\": \"2000-12-12\",\n    \"returnBookDate\": \"2001-03-12\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -310,8 +310,7 @@
 						"borrowedbook",
 						"borrowBook"
 					]
-				},
-				"description": "Borrow Book"
+				}
 			},
 			"response": []
 		},
@@ -321,7 +320,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/v1/borrowedbook/returnBook?borrowedBookId=32",
+					"raw": "http://localhost:8080/v1/borrowedbook/returnBook?borrowedBookId=31",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -335,11 +334,10 @@
 					"query": [
 						{
 							"key": "borrowedBookId",
-							"value": "32"
+							"value": "31"
 						}
 					]
-				},
-				"description": "return Book by param borrowedBookId"
+				}
 			},
 			"response": []
 		}
