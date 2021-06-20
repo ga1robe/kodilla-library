@@ -6,7 +6,9 @@ import com.crud.library.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -27,7 +29,12 @@ public class BorrowedBookController {
 
     @RequestMapping(method = RequestMethod.POST, value = "borrowBook", consumes = APPLICATION_JSON_VALUE)
     public void borrowBook(@RequestBody BorrowedBookDto borrowedBookDto) {
-        borrowedBookMapper.maptoBorrowedBookDto(service.saveBorrowedBook(borrowedBookMapper.mapToBorrowedBook(borrowedBookDto)));
+        try {
+            borrowedBookMapper.maptoBorrowedBookDto(service.saveBorrowedBook(borrowedBookMapper.mapToBorrowedBook(borrowedBookDto)));
+        }
+        catch (Exception e) {
+            new NotFoundRecordException(e);
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "returnBook")
