@@ -33,7 +33,12 @@ public class BookCopyController {
 
     @RequestMapping(method = RequestMethod.POST, value = "addBookCopy", consumes = APPLICATION_JSON_VALUE)
     public void addBookCopy(@RequestBody BookCopyDto bookCopyDto) {
-        bookCopyMapper.mapToBookCopiesDto(service.saveBookCopy(bookCopyMapper.mapToBookCopies(bookCopyDto)));
+        try {
+            bookCopyMapper.mapToBookCopiesDto(service.saveBookCopy(bookCopyMapper.mapToBookCopies(bookCopyDto)));
+        }
+        catch (Exception e) {
+            new NotFoundRecordException(e);
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateBookCopy")
@@ -43,7 +48,12 @@ public class BookCopyController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteBookCopy")
     public void deleteUser(@RequestParam Long bookCopyId) {
-        service.deleteBookCopy(bookCopyId);
+        try {
+            service.deleteBookCopy(bookCopyId);
+        }
+        catch (Exception e) {
+            new NotFoundRecordException(e);
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateStatus")
