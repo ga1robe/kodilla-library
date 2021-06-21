@@ -100,7 +100,80 @@
 			"response": []
 		},
 		{
-			"name": "getAllBooks",
+			"name": "addBookCopy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 9,\n    \"bookId\": 19,\n    \"rentalStatus\": \"AVAILABLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/bookcopies/addBookCopy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"bookcopies",
+						"addBookCopy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBorrowedBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\" function() {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/borrowedbook/getBorrowedBooks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"borrowedbook",
+						"getBorrowedBooks"
+					]
+				},
+				"description": "getBorrowedBooks"
+			},
+			"response": []
+		},
+		{
+			"name": "borrowBook",
 			"event": [
 				{
 					"listen": "test",
@@ -140,32 +213,33 @@
 						"borrowedbook",
 						"borrowBook"
 					]
+				},
+				"description": "BorrowBook"
+			},
+			"response": []
+		},
+		{
+			"name": "getBookCopies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\" function() {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "addBookCopy",
+			],
 			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"Id\": 9,\n    \"bookId\": 19,\n    \"rentalStatus\": \"AVAILABLE\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+				"method": "GET",
+				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/v1/bookcopies/addBookCopy",
+					"raw": "http://localhost:8080/v1/bookcopies/getBookCopies",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -174,47 +248,10 @@
 					"path": [
 						"v1",
 						"bookcopies",
-						"addBookCopy"
+						"getBookCopies"
 					]
 				},
-				"description": "add Book Copy"
-			},
-			"response": []
-		},
-		{
-			"name": "updateBookCopy",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"Id\": 8,\n    \"bookId\": 19,\n    \"rentalStatus\": \"DESTROYED\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/bookcopies/updateBookCopy",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"bookcopies",
-						"updateBookCopy"
-					]
-				},
-				"description": "Update BookCopy.\nChange status."
+				"description": "getBookCopies"
 			},
 			"response": []
 		},
@@ -266,6 +303,43 @@
 					]
 				},
 				"description": "Count available BookCopies\nWhere title is Buszujący w zbożu"
+			},
+			"response": []
+		},
+		{
+			"name": "updateBookCopy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 8,\n    \"bookId\": 19,\n    \"rentalStatus\": \"DESTROYED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/bookcopies/updateBookCopy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"bookcopies",
+						"updateBookCopy"
+					]
+				},
+				"description": "Update BookCopy.\nChange status."
 			},
 			"response": []
 		},

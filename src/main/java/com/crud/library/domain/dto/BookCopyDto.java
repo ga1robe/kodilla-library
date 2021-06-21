@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BookCopyDto {
 
-    private Long Id;
+    private Long id;
     private Long bookId;
     private RentalStatus rentalStatus;
 }
