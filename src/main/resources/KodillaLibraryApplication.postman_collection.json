@@ -365,7 +365,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"bookCopyId\": 20,\n    \"userId\": 1\n    \"borrowedBookDate\": \"2000-12-12\",\n    \"returnBookDate\": \"2001-03-12\"\n}",
+					"raw": "{\n    \"bookCopyId\": 20,\n    \"userId\": 1,\n    \"borrowedBookDate\": \"2000-12-12\",\n    \"returnBookDate\": \"2001-03-12\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
